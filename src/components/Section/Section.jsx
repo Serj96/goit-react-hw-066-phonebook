@@ -13,4 +13,4 @@ Section.propTypes = {
     children: PropTypes.element,
 }
 
-export default Section
+export default Section;

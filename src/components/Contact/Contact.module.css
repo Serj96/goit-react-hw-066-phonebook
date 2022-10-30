@@ -1,0 +1,17 @@
+.contact {
+    text-align: start;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+li:first-child {
+    margin-top: 0px;
+}
+
+li {
+    margin-top: 10px;
+}

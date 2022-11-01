@@ -1,24 +1,26 @@
 
-import PropTypes from 'prop-types'
-import css from './Contact.module.css'
+import PropTypes from 'prop-types';
+import css from './Contact.module.css';
 
 
-const Contact = ({title}) => {
+const Contact = ({ name, number, contactId, deleteContact }) => {
     return (
         <div className={css.contact}>
-            <h2 className={css.title}>{title}</h2>
-            <ul>
-            <li>Roise</li>
-            <li>Hermione</li>
-            <li>Eden</li>
-            </ul>
+                <span>{name}: </span>
+                <span>{number}</span>
+                <button type="button" onClick={() => deleteContact(contactId)}>
+                 Видалити
+                 </button>
         </div>
     )
 }
 
 
 Contact.propTypes = {
-    title: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+    contactId: PropTypes.string.isRequired,
+    deleteContact: PropTypes.func.isRequired,
 }
 
 export default Contact;

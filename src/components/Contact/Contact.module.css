@@ -1,17 +1,48 @@
 .contact {
+    font-family: "Amazon Ember",sans-serif;
     text-align: start;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 12px;
 }
 
-.title {
-    margin-top: 20px;
-    font-size: 30px;
-    font-weight: 700;
+span {
+    display: inline-block;
+    aling-items: center;
+    margin-left:5px;
+}
+span:first-child {
+    margin-left:0px;
 }
 
-li:first-child {
-    margin-top: 0px;
+
+button {
+
+  margin-left: 12px; 
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  /* box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0; */
+  color: #0f1111;
+  cursor: pointer;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  text-decoration: none;
+  width: 100px;
 }
 
-li {
-    margin-top: 10px;
+button:hover {
+  background-color: #f7fafa;
 }
+
+button:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+
+

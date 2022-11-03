@@ -1,10 +1,9 @@
-
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Section from './Section/Section';
 import Form from './Form/Form.jsx';
 import { nanoid } from 'nanoid';
-import ContactList from './ContactList/ContactList'
-import Filter from './Filter/Filter'
+import ContactList from './ContactList/ContactList';
+import Filter from './Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -40,36 +39,32 @@ export class App extends Component {
     );
   };
 
+  formSubmitHandler = data => {
+    console.log(data);
+  };
 
+  deleteContact = contactId => {
+    this.setState(prev => ({
+      contacts: prev.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
 
-formSubmitHandler = data => {
-  console.log(data);
-};
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
 
-deleteContact = contactId => {
-  this.setState(prev => ({
-    contacts: prev.contacts.filter(contact => contact.id !== contactId),
-  }));
-};
-
-changeFilter = e => {
-  this.setState({ filter: e.currentTarget.value });
-};
-
-
-  
   render() {
-    const { filter } = this.state
+    const { filter } = this.state;
     return (
-      <Section title="Phonebook"  >
-        <Form  onSubmit={this.addContact}/>
+      <Section title="Phonebook">
+        <Form onSubmit={this.addContact} />
         <Filter value={filter} changeFilter={this.changeFilter} />
-         <ContactList title="Contacts"
+        <ContactList
+          title="Contacts"
           contacts={this.filterList()}
           deleteContact={this.deleteContact}
         />
       </Section>
-    )
+    );
   }
-  
-};
+}

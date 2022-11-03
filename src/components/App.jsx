@@ -53,6 +53,15 @@ export class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  componentDidMount() {
+    console.log("App componentDidMount"); 
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+    console.log(prevState);
+    console.log(this.state);
+  }
   render() {
     const { filter } = this.state;
     return (

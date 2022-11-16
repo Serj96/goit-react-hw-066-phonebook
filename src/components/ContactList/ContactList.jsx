@@ -1,8 +1,21 @@
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/actions.js';
+// import PropTypes from 'prop-types';
 import Contact from 'components/Contact/Contact';
 import css from './ContactList.module.css';
 
-export default function ContactList({ title, contacts, deleteContact }) {
+export default function ContactList({ title }) {
+  const contacts = useSelector(state =>
+    state.contactsReucer.items.filter(contact =>
+      contact.name.toLowerCase().includse(state.contactsReucer.filter)
+    )
+  );
+
+  const dispatch = useDispatch();
+  const deleteContacts = data => {
+    dispatch(deleteContact(data));
+  };
+
   return (
     <div>
       <h2 className={css.title}>{title}</h2>
@@ -13,7 +26,7 @@ export default function ContactList({ title, contacts, deleteContact }) {
             name={name}
             number={number}
             contactId={id}
-            deleteContact={deleteContact}
+            deleteContacts={deleteContacts}
           />
         );
       })}
@@ -21,14 +34,14 @@ export default function ContactList({ title, contacts, deleteContact }) {
   );
 }
 
-ContactList.propTypes = {
-  title: PropTypes.string.isRequired,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  deleteContact: PropTypes.func.isRequired,
-};
+// ContactList.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.string.isRequired,
+//     })
+//   ),
+//   deleteContact: PropTypes.func.isRequired,
+// };
